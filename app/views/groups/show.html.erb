@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h1><%= @group.group_name%></h1>
+</div>
+
+<div>
+  <ul>
+    <% @group.tools.each do |tool| %>
+      <li><%= tool.tool_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <!-- <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+  Add a User
+    <span class="caret"></span>
+  </button> -->
+
+<!-- <form action="/create_membership" class="btn btn-default dropdown-toggle" id="dropdownMenu1" method="post" data-toggle="dropdown"> -->
+  <!-- <div class="form-group"> -->
+    <!-- <select id="" name="" >Add a user</select> -->
+  <!-- </div> -->
+<!-- </form> -->
+ <form action="/create_membership" class="form-horizontal" method="post">
+  <div class="form-group">
+    <label for="Users">Add a user to this group</label>
+      <select name="user_id" id="user">
+        <% @users.each do |user| %>
+          <option value="<%= user.id %>"><%= user.username %></option>
+        <% end %>
+      </select>
+      <button class="btn btn-default" action="post">Submit</button>
+   </div>
+ </form>
+
+ <%= form_for Membership.new do |f| %>
+      <%= f.collection_select( :user_id, @users, :id, :username ) %>
+      <%= f.hidden_field( :group_id, :value => @group.id ) %>
+      <%= f.submit %>
+    <% end %>
+
+<!--   <form>
+    <select id = "", name="", class="">
+
+    </select>
+  </form> -->
+</div>
