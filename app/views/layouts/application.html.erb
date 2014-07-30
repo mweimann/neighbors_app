@@ -39,14 +39,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/tools">Tools</a></li>
-        <li><a href="/memberships">Memberships</a></li>
+        <!-- <li><a href="/memberships">Memberships</a></li> -->
         <li><a href="/groups">Groups</a></li>
-        <li><a href="#">About</a></li>
+        <!-- <li><a href="#">About</a></li> -->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.present? %>
-          <li><a href="/users/edit">current_user.username</a></li>
+          <li><a href="/users/edit"><%= current_user.username %></a></li>
           <li><a href="/users/sign_out" data-method="delete">Sign out</a></li>
         <% else %>
           <li><a href="/users/sign_up">Sign up</a></li>

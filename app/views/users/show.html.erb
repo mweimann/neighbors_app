@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1><%= @user.username %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><%= @user.username %>'s Tools</dt>
+  <dd>
+    <ul>
+      <% @tools.each do |tool| %>
+        <li><%= tool.tool_name %></li>
+      <% end %>
+    </ul>
+  </dd>
+
+
+
+</dl>
