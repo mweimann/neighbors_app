@@ -3,6 +3,16 @@
 </div>
 
 <div>
+  <h3>Members</h3>
+  <ul>
+    <% @group.members.each do |member| %>
+      <li><%= member.username %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h3>Tools</h3>
   <ul>
     <% @group.tools.each do |tool| %>
       <li><%= tool.tool_name %></li>
@@ -11,17 +21,7 @@
 </div>
 
 <div>
-  <!-- <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-  Add a User
-    <span class="caret"></span>
-  </button> -->
-
-<!-- <form action="/create_membership" class="btn btn-default dropdown-toggle" id="dropdownMenu1" method="post" data-toggle="dropdown"> -->
-  <!-- <div class="form-group"> -->
-    <!-- <select id="" name="" >Add a user</select> -->
-  <!-- </div> -->
-<!-- </form> -->
- <form action="/create_membership" class="form-horizontal" method="post">
+  <form action="/create_membership" class="form-horizontal">
   <div class="form-group">
     <label for="Users">Add a user to this group</label>
       <select name="user_id" id="user">
@@ -29,15 +29,12 @@
           <option value="<%= user.id %>"><%= user.username %></option>
         <% end %>
       </select>
+      <input type="hidden" name="group_id" value="<%= @group.id %>">
       <button class="btn btn-default" action="post">Submit</button>
    </div>
  </form>
 
- <%= form_for Membership.new do |f| %>
-      <%= f.collection_select( :user_id, @users, :id, :username ) %>
-      <%= f.hidden_field( :group_id, :value => @group.id ) %>
-      <%= f.submit %>
-    <% end %>
+
 
 <!--   <form>
     <select id = "", name="", class="">

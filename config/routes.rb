@@ -21,8 +21,8 @@ Rails.application.routes.draw do
 
   # Routes for the Membership resource:
   # CREATE
-  post('/memberships/new', { :controller => 'memberships', :action => 'new' })
-  post('/create_membership', { :controller => 'memberships', :action => 'create' })
+  get('/memberships/new', { :controller => 'memberships', :action => 'new' })
+  get('/create_membership', { :controller => 'memberships', :action => 'create' })
 
   # READ
   get('/memberships', { :controller => 'memberships', :action => 'index' })
