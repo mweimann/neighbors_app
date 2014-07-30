@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # UPDATE
   get('/tools/:id/edit', { :controller => 'tools', :action => 'edit' })
   get('/update_tool/:id', { :controller => 'tools', :action => 'update' })
+  get('/update_tool_availability/:id', {  :controller => 'tools', :action => 'show' })
 
   # DELETE
   get('/delete_tool/:id', { :controller => 'tools', :action => 'destroy' })

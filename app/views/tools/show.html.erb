@@ -1,15 +1,16 @@
 <div class="page-header">
-  <h1>Tool #<%= @tool.id %></h1>
+  <h1><%= @tool.tool_name %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>Tool name</dt>
   <dd><%= @tool.tool_name %></dd>
 
-  <dt>User</dt>
-  <dd><%= @tool.user_id %></dd>
+  <dt>Owner</dt>
+  <dd>
+    <%= @tool.owner.username %>
+  </dd>
 
-  <dt>Available</dt>
-  <dd><%= @tool.available %></dd>
-
+  <dt>Available?</dt>
+  <dd>Yes. <a href="">Borrow this tool</a></dd>
 </dl>

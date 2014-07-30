@@ -4,4 +4,7 @@ class Tool < ActiveRecord::Base
     return User.find_by({ :id => self.user_id })
   end
 
+  def available
+
+  end
 end
