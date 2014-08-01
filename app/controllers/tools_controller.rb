@@ -15,13 +15,13 @@ class ToolsController < ApplicationController
   def toggle_availability
     @tool = Tool.find(params[:id])
 
-    if @tool.placeholder = true
+    if @tool.placeholder == true
        @tool.placeholder = false
-    elsif @tool.placeholder = false
+    elsif @tool.placeholder == false
        @tool.placeholder = true
     end
     @tool.save
-    redirect_to "/tools/:id", :notice => "Nice one!"
+    redirect_to "/tools/#{@tool.id}", :notice => "Nice one!"
   end
 
   def show

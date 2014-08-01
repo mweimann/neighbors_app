@@ -13,15 +13,13 @@
 
   <dt>Available?</dt>
   <dd>
-  <% if @tool.placeholder = "true" %>
-    <%= link_to("Reserve this tool",
-                "/update_tool_availability/#{:id}",
-               # "/update_tool_availability?#{:id}&placeholder=#{false}",
-               :class => "btn btn-success btn-lg") %>
+  <%= @tool.placeholder %>
+  <% if @tool.placeholder == true %>
+
+    <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-lg">Reserve this tool</a>
     <% else %>
-    <%= link_to("Tool is currently unavailable",
-                "/update_tool_availability?#{:id}&placeholder=#{true}",
-                :class => "btn btn-success btn-lg") %>
+    <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-lg">Replace this tool</a>
+
     <% end %>
   </dd>
 
