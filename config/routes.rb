@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'groups#index'
 
   # Routes for the Tool resource:
+  get('/update_tool_availability/:id', {  :controller => 'tools', :action => 'toggle_availability' })
+
   # CREATE
   get('/tools/new', { :controller => 'tools', :action => 'new' })
   get('/create_tool', { :controller => 'tools', :action => 'create' })
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
   # UPDATE
   get('/tools/:id/edit', { :controller => 'tools', :action => 'edit' })
   get('/update_tool/:id', { :controller => 'tools', :action => 'update' })
-  get('/update_tool_availability/:id', {  :controller => 'tools', :action => 'show' })
 
   # DELETE
   get('/delete_tool/:id', { :controller => 'tools', :action => 'destroy' })

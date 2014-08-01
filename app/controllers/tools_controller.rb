@@ -3,19 +3,22 @@ class ToolsController < ApplicationController
     @tools = Tool.all
   end
 
+  def toggle_availability
+    # if this tool's availability = true return "Available"
+    @tool.placeholder = params[:placeholder]
+    @tool.id = params[:id]
+    @tool.save
+    redirect_to "/tools/[:id]"
+
+  end
+
   def show
     @tool = Tool.find(params[:id])
     # @user = Tool.where({ :user_id =>  })
 
     @owner = User.where({ :id => @tool.user_id })
 
-    # if this tool's availability = true return "Available"
-    if @tool.placeholder = true
-      # return "It's available"
-      redirect_to :back, :notice => "It's available"
-    else
-      # redirect_to "/tools", :notice => "Not available"
-    end
+
   end
 
   def new

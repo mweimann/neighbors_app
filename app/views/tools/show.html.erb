@@ -12,5 +12,16 @@
   </dd>
 
   <dt>Available?</dt>
-  <dd>Yes. <a href="">Borrow this tool</a></dd>
+  <dd>
+  <% if @tool.placeholder = "false" %>
+    <%= link_to("Reserve this tool",
+               "/tools/#{@tool.id}",
+               :class => "btn btn-success btn-lg") %>
+    <% else %>
+    <%= link_to("Tool is currently unavailable",
+                "/tools/#{@tool.id}",
+                :class => "btn btn-success btn-lg") %>
+    <% end %>
+  </dd>
+
 </dl>
