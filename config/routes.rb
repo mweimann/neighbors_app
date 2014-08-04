@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'groups#index'
 
-  # Routes for the Tool resource:
-  get('/update_tool_availability/:id', {  :controller => 'tools', :action => 'toggle_availability' })
+  get('/update_tool_availability/:id', { :controller => 'tools', :action => 'toggle_availability' })
 
   # CREATE
   get('/tools/new', { :controller => 'tools', :action => 'new' })

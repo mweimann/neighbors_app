@@ -2,25 +2,40 @@
   <h1><%= @group.group_name%></h1>
 </div>
 
-<div>
-  <h3>Members</h3>
-  <ul>
-    <% @group.members.each do |member| %>
-      <li><%= member.username %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-2">
+      <h4>Members</h4>
+      <ul>
+        <% @group.members.each do |member| %>
+          <li><%= member.username %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-4">
+    <h4>Tools</h4>
+    <ul>
+      <% @group.tools.each do |tool| %>
+        <li><%= tool.tool_name %></li>
+      <% end %>
+    </ul>
+    </div>
+    <div class="col-md-2"></div>
+      <h4>Contact Info</h4>
+      <ul>
+        <% @group.members.each do |member| %>
+          <li><%= member.email %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div>
-  <h3>Tools</h3>
-  <ul>
-    <% @group.tools.each do |tool| %>
-      <li><%= tool.tool_name %></li>
-    <% end %>
-  </ul>
+
 </div>
 
-<div>
+<!-- <div>
   <form action="/create_membership" class="form-horizontal">
   <div class="form-group">
     <label for="Users">Add a user to this group</label>
@@ -32,7 +47,7 @@
       <input type="hidden" name="group_id" value="<%= @group.id %>">
       <button class="btn btn-default" action="post">Submit</button>
    </div>
- </form>
+ </form> -->
 
 
 

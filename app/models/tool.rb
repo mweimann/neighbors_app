@@ -7,4 +7,5 @@ class Tool < ActiveRecord::Base
   def available
 
   end
+
 end

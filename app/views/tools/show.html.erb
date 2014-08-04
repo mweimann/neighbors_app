@@ -13,14 +13,14 @@
 
   <dt>Available?</dt>
   <dd>
-  <%= @tool.placeholder %>
+
   <% if @tool.placeholder == true %>
-
-    <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-lg">Reserve this tool</a>
-    <% else %>
-    <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-lg">Replace this tool</a>
-
-    <% end %>
+    <p>This tool is currently available.</p>
+    <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-large">Reserve this tool</a>
+  <% else %>
+    <p>This tool is currently unavailable.</p>
+     <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-warning btn-large">Send a request to the owner</a>
+   <% end %>
   </dd>
 
 </dl>
