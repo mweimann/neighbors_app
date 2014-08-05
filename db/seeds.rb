@@ -19,6 +19,7 @@ user.save
 
 group = Group.new
 group.group_name = "600SEast"
+group.creator_id = random_user.id
 group.save
 
 membership = Membership.new

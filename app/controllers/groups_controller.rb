@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @users = User.all
+    @members = User.all
   end
 
 
@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new
     @group.group_name = params[:group_name]
+    @group.creator_id = params[:creator_id]
 
     if @group.save
       redirect_to "/groups", :notice => "Group created successfully."

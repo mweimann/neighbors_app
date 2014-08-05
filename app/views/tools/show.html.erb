@@ -2,17 +2,13 @@
   <h1><%= @tool.tool_name %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Tool name</dt>
-  <dd><%= @tool.tool_name %></dd>
 
-  <dt>Owner</dt>
-  <dd>
-    <%= @tool.owner.username %>
-  </dd>
+<div class="row">
+  <div class="col-sm-4">
+  <p>Owned by <a href="mailto:<%= @tool.owner.email %>"><%= @tool.owner.username %></a></p>
 
-  <dt>Available?</dt>
-  <dd>
+
+
 
   <% if @tool.placeholder == true %>
     <p>This tool is currently available.</p>
@@ -21,6 +17,6 @@
     <p>This tool is currently unavailable.</p>
      <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-warning btn-large">Send a request to the owner</a>
    <% end %>
-  </dd>
 
-</dl>
+
+

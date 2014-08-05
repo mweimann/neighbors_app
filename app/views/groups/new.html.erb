@@ -20,6 +20,8 @@
     </label>
     <div class="col-sm-10">
       <input type="text" id="group_name" name="group_name" placeholder="Group name" class="form-control" value="<%= @group.group_name %>">
+      <input type="hidden" id="creator_id" name="creator_id" value="<%= current_user.id %>">
+      <!-- Need to add current_user to the group...memberships? -->
     </div>
   </div>
 
