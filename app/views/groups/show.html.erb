@@ -6,54 +6,31 @@
   <div class="row">
     <div class="col-md-offset-2 col-md-2">
       <h4>Members</h4>
-      <ul>
-        <% @group.members.each do |member| %>
-          <li><%= member.username %></li>
-        <% end %>
-      </ul>
     </div>
     <div class="col-md-4">
-    <h4>Tools</h4>
-    <ul>
-      <% @group.tools.each do |tool| %>
-        <li><%= tool.tool_name %></li>
-      <% end %>
-    </ul>
+      <h4>Tools</h4>
     </div>
     <div class="col-md-2"></div>
       <h4>Contact Info</h4>
-      <ul>
-        <% @group.members.each do |member| %>
-          <li><%= member.email %></li>
-        <% end %>
-      </ul>
     </div>
   </div>
 </div>
 
-<div>
-
-</div>
-
-<!-- <div>
-  <form action="/create_membership" class="form-horizontal">
-  <div class="form-group">
-    <label for="Users">Add a user to this group</label>
-      <select name="user_id" id="user">
-        <% @users.each do |user| %>
-          <option value="<%= user.id %>"><%= user.username %></option>
-        <% end %>
-      </select>
-      <input type="hidden" name="group_id" value="<%= @group.id %>">
-      <button class="btn btn-default" action="post">Submit</button>
-   </div>
- </form> -->
-
-
-
-<!--   <form>
-    <select id = "", name="", class="">
-
-    </select>
-  </form> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-2">
+      <p><%= @users.username %></p>
+    </div>
+    <div class="col-md-4">
+      <ul>
+        <li>Tool</li>
+        <li>Tool</li>
+        <li>Tool</li>
+        <li>Tool</li>
+      </ul>
+    </div>
+    <div class="col-md-2 col-md-offset-2"></div>
+      <p>Member email</p>
+    </div>
+  </div>
 </div>
