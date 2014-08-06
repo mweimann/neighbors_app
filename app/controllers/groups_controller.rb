@@ -16,9 +16,12 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new
     @group.group_name = params[:group_name]
-    @group.creator_id = params[:creator_id]
-
+    @group.creator_id = current_user.id
     if @group.save
+      @membership = Membership.new
+      @membership.group_id = @group.id
+      @membership.user_id = @group.creator_id
+      @membership.save
       redirect_to "/groups", :notice => "Group created successfully."
     else
       render 'new'
