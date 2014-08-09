@@ -2,16 +2,18 @@
   <div class="row">
     <h1><%= @group.group_name%></h1>
     <form action="/create_membership" class="form-horizontal">
-    <div class="form-group">
-      <label for="Users">Add a user to this group</label>
-        <select name="user_id" id="user">
-          <% @members.each do |user| %>
-            <option value="<%= user.id %>"><%= user.username %></option>
-          <% end %>
-        </select>
-        <input type="hidden" name="group_id" value="<%= @group.id %>">
-        <button class="btn btn-default" action="post">Submit</button>
-    </div>
+    <% if current_user.id == @group.creator_id %>
+      <div class="form-group">
+        <label for="Users">Add a user to this group</label>
+          <select name="user_id" id="user">
+            <% @members.each do |user| %>
+              <option value="<%= user.id %>"><%= user.username %></option>
+            <% end %>
+          </select>
+          <input type="hidden" name="group_id" value="<%= @group.id %>">
+          <button class="btn btn-default" action="post">Submit</button>
+      </div>
+    <% end %>
   </div>
 </div>
 <div class="row">

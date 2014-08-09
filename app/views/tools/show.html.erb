@@ -5,17 +5,15 @@
 
 <div class="row">
   <div class="col-sm-4">
-  <p>Owned by <a href="mailto:<%= @tool.owner.email %>"><%= @tool.owner.username %></a></p>
+    <p>Owned by <a href="mailto:<%= @tool.owner.email %>"><%= @tool.owner.username %></a></p>
 
 
-
-
-  <% if @tool.available %>
-    <p>This tool is currently available.</p>
-    <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-large">Reserve this tool</a>
-  <% else %>
-    <p>This tool is currently unavailable.</p>
-     <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-warning btn-large">Send a request to the owner</a>
+    <% if @tool.available %>
+      <p>This tool is currently available.</p>
+      <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-large">Reserve this tool</a>
+    <% else %>
+      <p>This tool is currently unavailable.</p>
+       <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-warning btn-large">Send a request to the owner</a>
    <% end %>
    </div>
 </div>
