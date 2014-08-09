@@ -14,16 +14,36 @@ class ToolsController < ApplicationController
   def toggle_availability
     @tool = Tool.find(params[:id])
 
-    if @tool.placeholder == true
-      @tool.placeholder = false
+    # TODO ask Jack how to DRY this up into the model
 
-    elsif @tool.placeholder == false
-      @tool.placeholder = true
+    # require 'rubygems'
+    # require 'twilio-ruby'
+    account_sid = 'AC713e0f4afe156f0a384b77049b729afc'
+    auth_token = '84f723424756c4bfc253817c97e467d3'
 
+
+
+    if @tool.available == true
+      @tool.available = false
+      message = "Hey – can I borrow your #{@tool.tool_name}?"
+    elsif @tool.available == false
+      @tool.available = true
+      message = "Can you let me know when your #{@tool.tool_name} is available?"
     end
     @tool.save
+
+    @client = Twilio::REST::Client.new account_sid, auth_token
+    @client.account.messages.create(
+      :from => '+12245854611',
+      :to => '+17732630868',
+      :body => message,
+    )
+
+
     redirect_to "/tools/#{@tool.id}", :notice => "Tool availability has been updated!"
   end
+
+
 
   def new
     @tool = Tool.new

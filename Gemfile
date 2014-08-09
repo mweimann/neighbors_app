@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+gem 'twilio-ruby', '~> 3.11'
+
 gem 'starter_generators', :git => "git://github.com/rbetina/starter_generators.git", :branch => "kiei925"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
