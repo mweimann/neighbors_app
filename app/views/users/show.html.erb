@@ -2,16 +2,28 @@
   <h1><%= @user.username %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><%= @user.username %>'s Tools</dt>
-  <dd>
-    <ul>
-      <% @tools.each do |tool| %>
-        <li><%= tool.tool_name %></li>
-      <% end %>
-    </ul>
-  </dd>
+<div class="row">
+  <div class="col-sm-4">
+    <h4><%= @user.username %>'s Tools</h4>
+      <ul>
+        <% @tools.each do |tool| %>
+          <li class="list-group-item"><a href="/tools/<%= tool.id %>"><%= tool.tool_name %></a>
+            <% if @user.id == current_user.id %>
+              <a href="/delete_tool/<%= tool.id %>">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+      <% if @user.id == current_user.id %>
+          <a href="/tools/new%>" class="btn btn-success btn-large">Add a new tool</a>
+        <% end %>
+    </div>
+</div>
 
 
-
-</dl>

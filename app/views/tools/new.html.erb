@@ -25,27 +25,13 @@
 
   <!-- Label and input for user_id -->
   <div class="form-group">
-    <label for="user_id" class="col-sm-2 control-label">
+     <label for="user_id" class="col-sm-2 control-label">
       User
     </label>
     <div class="col-sm-10">
-      <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @tool.user_id %>">
+      <input type="hidden" name="user_id" class="form-control" value="<%= current_user.id %>">
     </div>
-  </div>
-
-  <!-- Label and input for available -->
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label for="available">
-          <input type="checkbox" id="available" name="available" value="1" <%= "checked" if @tool.available %>>
-          Available
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
+     <input type="hidden" name="available" value="1">
     <div class="col-sm-offset-2 col-sm-10">
       <input type="submit" value="Create Tool" class="btn btn-primary">
     </div>

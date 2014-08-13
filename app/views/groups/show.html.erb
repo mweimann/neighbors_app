@@ -3,7 +3,6 @@
     <h1><%= @group.group_name%></h1>
     <form action="/create_membership" class="form-horizontal">
     <% if current_user.id == @group.creator_id %>
-      <div class="form-group">
         <label for="Users">Add a user to this group</label>
           <select name="user_id" id="user">
             <% @members.each do |user| %>
@@ -12,7 +11,6 @@
           </select>
           <input type="hidden" name="group_id" value="<%= @group.id %>">
           <button class="btn btn-default" action="post">Submit</button>
-      </div>
     <% end %>
   </div>
 </div>
@@ -20,7 +18,7 @@
     <!-- <h5>Members</h5> -->
     <% @group.members.each do |member| %>
       <div class="col-sm-2">
-        <h4><%= member.username %></h4>
+        <h4><a href="/users/<%= member.id %>"><%= member.username %></a></h4>
         <a href="<%= member.email %>"> <%= member.email %></a>
       </div>
       <div class="col-sm-10">

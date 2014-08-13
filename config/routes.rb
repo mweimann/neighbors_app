@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-  # Routes for the Group resource:
+  # Routes for the User resource:
   # CREATE
   get('/users/new', { :controller => 'users', :action => 'new' })
   get('/create_user', { :controller => 'users', :action => 'create' })
