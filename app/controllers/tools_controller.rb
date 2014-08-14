@@ -16,14 +16,10 @@ class ToolsController < ApplicationController
 
     # TODO ask Jack how to DRY this up into the model
 
-    # require 'rubygems'
-    # require 'twilio-ruby'
-    # account_sid = 'AC713e0f4afe156f0a384b77049b729afc'
-    # auth_token = '84f723424756c4bfc253817c97e467d3'
+
     account_sid = ENV['account_sid']
     auth_token = ENV['auth_token']
-    # account_sid = APP_CONFIG['account_sid']
-    # auth_token = APP_CONFIG['auth_token']
+
 
     if @tool.available == true
       @tool.available = false
