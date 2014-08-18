@@ -21,7 +21,6 @@ class ToolsController < ApplicationController
     auth_token = ENV['auth_token']
 
 
-
     if @tool.available == true
       @tool.available = false
       message = "Hey – can I borrow your #{@tool.tool_name}?"

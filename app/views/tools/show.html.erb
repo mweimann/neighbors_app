@@ -6,8 +6,6 @@
 <div class="row">
   <div class="col-sm-4">
     <p>Owned by <a href="/users/<%= @tool.owner.id %>"><%= @tool.owner.username %></a></p>
-
-
     <% if @tool.available %>
       <p>This tool is currently available.</p>
       <a href="/update_tool_availability/<%= @tool.id %>" class="btn btn-success btn-large">Reserve this tool</a>
