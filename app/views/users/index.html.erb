@@ -19,13 +19,10 @@
           <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
-          <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe,
-              delete_user_url(user),
-              :class => "btn btn-danger",
-              :method => "delete") %>
 
-
-
+          <a href="/delete_user/<%= user.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
 
         </li>
       </ul>

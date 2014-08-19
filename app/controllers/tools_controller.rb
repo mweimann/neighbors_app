@@ -16,10 +16,8 @@ class ToolsController < ApplicationController
 
     # TODO ask Jack how to DRY this up into the model
 
-
     account_sid = ENV['account_sid']
     auth_token = ENV['auth_token']
-
 
     if @tool.available == true
       @tool.available = false
