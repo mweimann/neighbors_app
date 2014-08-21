@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>Invite a Neighbor</h1>
+</div>
+
+<% if @invitation.errors.any? %>
+  <% @invitation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<form action="/create_invitation" class="form-horizontal">
+  <!-- Label and input for recipient_email -->
+  <div class="form-group">
+    <label for="recipient_email" class="col-sm-2 control-label">
+      Neighbor's email
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="recipient_email" name="recipient_email" placeholder="Neighbor's email" class="form-control" value="<%= @invitation.recipient_email %>">
+    </div>
+  </div>
+
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+     <!-- <label for="user_id" class="col-sm-2 control-label">
+      User
+    </label> -->
+    <div class="col-sm-10">
+      <input type="hidden" name="sender_id" class="form-control" value="<%= current_user.id %>">
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Send Invitation" class="btn btn-primary">
+    </div>
+  </div>
+</form>

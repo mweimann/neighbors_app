@@ -72,4 +72,20 @@ Rails.application.routes.draw do
   get('/delete_user/:id', { :controller => 'users', :action => 'destroy' })
 
 
+  # Routes for the Invitation resource:
+  # CREATE
+  get('/invitations/new', { :controller => 'invitations', :action => 'new' })
+  get('/create_invitation', { :controller => 'invitations', :action => 'create' })
+
+  # READ
+  get('/invitations', { :controller => 'invitations', :action => 'index' })
+  get('/invitations/:id', { :controller => 'invitations', :action => 'show' })
+
+  # UPDATE
+  get('/invitations/:id/edit', { :controller => 'invitations', :action => 'edit' })
+  get('/update_invitation/:id', { :controller => 'invitations', :action => 'update' })
+
+  # DELETE
+  get('/delete_invitation/:id', { :controller => 'invitations', :action => 'destroy' })
+
 end

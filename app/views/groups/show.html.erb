@@ -1,7 +1,7 @@
 <div class="page-header">
   <div class="row">
     <h1><%= @group.group_name%></h1>
-    <form action="/create_membership" class="form-horizontal">
+    <!-- <form action="/create_membership" class="form-horizontal">
     <% if current_user.id == @group.creator_id %>
         <label for="Users">Add a user to this group</label>
           <select name="user_id" id="user">
@@ -11,7 +11,7 @@
           </select>
           <input type="hidden" name="group_id" value="<%= @group.id %>">
           <button class="btn btn-default" action="post">Submit</button>
-    <% end %>
+    <% end %> -->
   </div>
 </div>
 <div class="row">
@@ -33,6 +33,6 @@
 </div>
 <div>
   <input type="hidden" name="group_id" value="<%= @group.id %>">
-  <%= link_to 'Invite a neighbor to this group', "/groups" %>
+  <%= link_to 'Invite a neighbor to this group', "/invitations/new" %>
 </div>
 
