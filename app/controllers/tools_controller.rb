@@ -1,21 +1,23 @@
 class ToolsController < ApplicationController
+  before_action(:set_photo, { :only => [:show, :toggle_availability, :edit, :update, :destroy] })
+
+
+  def set_photo
+    @tool = Tool.find(params[:id])
+  end
+
   def index
     @tools = Tool.all
   end
 
 
   def show
-    @tool = Tool.find(params[:id])
-    # @user = Tool.where({ :user_id =>  })
-
     @owner = User.where({ :id => @tool.user_id })
   end
 
+
   def toggle_availability
-    @tool = Tool.find(params[:id])
-
     # TODO ask Jack how to DRY this up into the model
-
     account_sid = ENV['account_sid']
     auth_token = ENV['auth_token']
 
@@ -34,7 +36,6 @@ class ToolsController < ApplicationController
       :to => '+17732630868',
       :body => message,
     )
-
     redirect_to "/tools/#{@tool.id}", :notice => "Tool availability has been updated!"
   end
 
@@ -53,18 +54,14 @@ class ToolsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
 
   def edit
-    @tool = Tool.find(params[:id])
   end
 
 
   def update
-    @tool = Tool.find(params[:id])
-
     @tool.tool_name = params[:tool_name]
     @tool.user_id = params[:user_id]
     @tool.available = params[:available]
@@ -78,10 +75,7 @@ class ToolsController < ApplicationController
 
 
   def destroy
-    @tool = Tool.find(params[:id])
-
     @tool.destroy
-
     redirect_to "/tools", :notice => "Tool deleted."
   end
 end

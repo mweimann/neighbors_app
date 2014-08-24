@@ -2,7 +2,7 @@
   <h1>Tools</h1>
 </div>
 
-<p><a href="/tools/new" class="btn btn-primary">Add a New Tool</a></p>
+<p><%= link_to("Add a New Tool", "/tools/new", :class => "btn btn-primary") %></p>
 
 <table class="table table-hover">
   <thead>
@@ -21,23 +21,14 @@
       <tr>
         <td><%= tool.tool_name %></td>
         <td><%= tool.user_id %></td>
-
         <td>
-          <a href="/tools/<%= tool.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
+          <%= link_to("<i class=\"fa fa-search-plus\"></i>".html_safe, "/tools/#{tool.id}", :class => "btn btn-primary") %>
         </td>
         <td>
-          <a href="/tools/<%= tool.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
+          <%= link_to("<i class=\"fa fa-edit\"></i>".html_safe, "/tools/#{tool.id}/edit", :class => "btn btn-warning") %>
         </td>
         <td>
-
-          <a href="/delete_tool/<%= tool.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-
+          <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe, "/delete_tool/#{tool.id}", :class => "btn btn-danger") %>
         </td>
       </tr>
     <% end %>

@@ -2,28 +2,18 @@
   <h1>Users</h1>
 </div>
 
-<p><a href="/users/new" class="btn btn-primary">Add a User</a></p>
-
-
+<p><%= link_to("Add a User", "/users/new", :class => "btn btn-primary") %></p>
 
   <tbody>
     <% @users.each do |user| %>
       <ul>
         <li>
           <div><%= user.username %></div>
-
-          <a href="/users/<%= user.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-
-          <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_user/<%= user.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-
+          <div>
+            <%= link_to("<i class=\"fa fa-search-plus\"></i>".html_safe, "/users/#{user.id}", :class => "btn btn-primary") %>
+            <%= link_to("<i class=\"fa fa-edit\"></i>".html_safe, "users/#{user.id}/edit", :class => "btn btn-warning") %>
+            <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe, "delete_user/#{user.id}", :class => "btn btn-danger") %>
+          </div>
         </li>
       </ul>
     <% end %>

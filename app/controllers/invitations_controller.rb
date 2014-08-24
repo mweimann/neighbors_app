@@ -17,7 +17,7 @@ class InvitationsController < ApplicationController
     @invitation.recipient_email = params[:recipient_email]
 
     if @invitation.save
-      redirect_to :back, :notice => "Your invitation has been sent."
+      redirect_to "/groups", :notice => "Your invitation has been sent."
       # ModelMailer.new_record_notification(@record).deliver
       InvitationMailer.invite_neighbor(@invitation).deliver
     else

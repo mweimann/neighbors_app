@@ -2,7 +2,8 @@
   <h1>Memberships</h1>
 </div>
 
-<p><a href="/memberships/new" class="btn btn-primary">Add a New Membership</a></p>
+
+<p><%= link_to("Add a New Membership", "/memberships/new", :class => "btn btn-primary") %></p>
 
 <table class="table table-hover">
   <thead>
@@ -21,19 +22,13 @@
         <td><%= membership.group_id %></td>
         <td><%= membership.user_id %></td>
         <td>
-          <a href="/memberships/<%= membership.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
+          <%= link_to("<i class=\"fa fa-search-plus\"></i>".html_safe, "/memberships/#{membership.id}", :class => "btn btn-primary") %>
         </td>
         <td>
-          <a href="/memberships/<%= membership.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
+          <%= link_to("<i class=\"fa fa-edit\"></i>".html_safe, "/memberships/#{membership.id}/edit", :class => "btn btn-warning") %>
         </td>
         <td>
-          <a href="/delete_membership/<%= membership.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
+          <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe, "/delete_membership/#{membership.id}", :class => "btn btn-danger") %>
         </td>
       </tr>
     <% end %>

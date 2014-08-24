@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # CREATE
   get('/tools/new', { :controller => 'tools', :action => 'new' })
-  get('/create_tool', { :controller => 'tools', :action => 'create' })
+  post('/create_tool', { :controller => 'tools', :action => 'create' })
 
   # READ
   get('/tools', { :controller => 'tools', :action => 'index' })
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # UPDATE
   get('/tools/:id/edit', { :controller => 'tools', :action => 'edit' })
-  get('/update_tool/:id', { :controller => 'tools', :action => 'update' })
+  post('/update_tool/:id', { :controller => 'tools', :action => 'update' })
 
   # DELETE
   get('/delete_tool/:id', { :controller => 'tools', :action => 'destroy' })
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # Routes for the Membership resource:
   # CREATE
   get('/memberships/new', { :controller => 'memberships', :action => 'new' })
-  get('/create_membership', { :controller => 'memberships', :action => 'create' })
+  post('/create_membership', { :controller => 'memberships', :action => 'create' })
 
   # READ
   get('/memberships', { :controller => 'memberships', :action => 'index' })
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   # UPDATE
   get('/memberships/:id/edit', { :controller => 'memberships', :action => 'edit' })
-  get('/update_membership/:id', { :controller => 'memberships', :action => 'update' })
+  post('/update_membership/:id', { :controller => 'memberships', :action => 'update' })
 
   # DELETE
   get('/delete_membership/:id', { :controller => 'memberships', :action => 'destroy' })
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   # Routes for the Group resource:
   # CREATE
   get('/groups/new', { :controller => 'groups', :action => 'new' })
-  get('/create_group', { :controller => 'groups', :action => 'create' })
+  post('/create_group', { :controller => 'groups', :action => 'create' })
 
   # READ
   get('/groups', { :controller => 'groups', :action => 'index' })
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
   # UPDATE
   get('/groups/:id/edit', { :controller => 'groups', :action => 'edit' })
-  get('/update_group/:id', { :controller => 'groups', :action => 'update' })
+  post('/update_group/:id', { :controller => 'groups', :action => 'update' })
 
   # DELETE
   get('/delete_group/:id', { :controller => 'groups', :action => 'destroy' })
@@ -75,7 +75,7 @@ Rails.application.routes.draw do
   # Routes for the Invitation resource:
   # CREATE
   get('/invitations/new', { :controller => 'invitations', :action => 'new' })
-  get('/create_invitation', { :controller => 'invitations', :action => 'create' })
+  post('/create_invitation', { :controller => 'invitations', :action => 'create' })
 
   # READ
   get('/invitations', { :controller => 'invitations', :action => 'index' })
