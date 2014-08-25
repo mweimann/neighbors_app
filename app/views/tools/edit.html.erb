@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Edit Tool #<%= @tool.id %></h1>
+  <h1>Edit <%= @tool.tool_name %></h1>
 </div>
 
 <% if @tool.errors.any? %>
@@ -11,7 +11,7 @@
   <% end %>
 <% end %>
 
-<%= form_tag("/update_tool/#{@tool.id}", :class => "form-horizontal") do %>
+<%= form_tag("/tools/#{@tool.id}", :class => "form-horizontal", :method => "patch") do %>
 
   <div class="form-group">
     <%= label_tag(:tool_name, "Tool name", :class => "col-sm-2 control-label") %>

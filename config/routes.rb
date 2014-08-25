@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # CREATE
   get('/tools/new', { :controller => 'tools', :action => 'new' })
-  post('/create_tool', { :controller => 'tools', :action => 'create' })
+  post('/tools', { :controller => 'tools', :action => 'create' })
 
   # READ
   get('/tools', { :controller => 'tools', :action => 'index' })
@@ -14,10 +14,10 @@ Rails.application.routes.draw do
 
   # UPDATE
   get('/tools/:id/edit', { :controller => 'tools', :action => 'edit' })
-  post('/update_tool/:id', { :controller => 'tools', :action => 'update' })
+  patch('/tools/:id', { :controller => 'tools', :action => 'update' })
 
   # DELETE
-  get('/delete_tool/:id', { :controller => 'tools', :action => 'destroy' })
+  delete('/tools/:id', { :controller => 'tools', :action => 'destroy' })
   #------------------------------
 
   # Routes for the Membership resource:

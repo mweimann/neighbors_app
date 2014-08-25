@@ -22,13 +22,21 @@
         <td><%= tool.tool_name %></td>
         <td><%= tool.user_id %></td>
         <td>
-          <%= link_to("<i class=\"fa fa-search-plus\"></i>".html_safe, "/tools/#{tool.id}", :class => "btn btn-primary") %>
+          <%= link_to("<i class=\"fa fa-search-plus\"></i>".html_safe,
+                      tool_url(tool),
+                      :class => "btn btn-primary") %>
         </td>
         <td>
-          <%= link_to("<i class=\"fa fa-edit\"></i>".html_safe, "/tools/#{tool.id}/edit", :class => "btn btn-warning") %>
+          <%= link_to("<i class=\"fa fa-edit\"></i>".html_safe,
+                      edit_tool_url(tool),
+                      :class => "btn btn-warning") %>
         </td>
         <td>
-          <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe, "/delete_tool/#{tool.id}", :class => "btn btn-danger") %>
+          <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe,
+                      delete_tool_url(tool),
+                      :class => "btn btn-danger",
+                      :method => "delete",
+                      :data => { :confirm => "Are you sure?"} )%>
         </td>
       </tr>
     <% end %>

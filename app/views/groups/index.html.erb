@@ -18,13 +18,21 @@
       <tr>
         <td><%= group.group_name %></td>
         <td>
-          <%= link_to("<i class=\"fa fa-search-plus\"></i>".html_safe, "/groups/#{group.id}", :class => "btn btn-primary") %>
+          <%= link_to("<i class=\"fa fa-search-plus\"></i>".html_safe,
+                      group_url(group),
+                      :class => "btn btn-primary") %>
         </td>
         <td>
-          <%= link_to("<i class=\"fa fa-edit\"></i>".html_safe, "/groups/#{group.id}/edit", :class => "btn btn-warning") %>
+          <%= link_to("<i class=\"fa fa-edit\"></i>".html_safe,
+                      edit_group_url(group),
+                      :class => "btn btn-warning") %>
         </td>
         <td>
-          <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe, "/delete_group/#{group.id}", :class => "btn btn-danger") %>
+          <%= link_to("<i class=\"fa fa-trash-o\"></i>".html_safe,
+                      delete_group_url(group),
+                      :class => "btn btn-danger",
+                      :method => "delete",
+                      :data => { :confirm => "Are you sure?"} ) %>
         </td>
       </tr>
     <% end %>

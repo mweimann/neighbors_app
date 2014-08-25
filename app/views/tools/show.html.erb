@@ -2,10 +2,9 @@
   <h1><%= @tool.tool_name %></h1>
 </div>
 
-
 <div class="row">
   <div class="col-sm-4">
-    <p>Owned by <a href="/users/<%= @tool.owner.id %>"><%= @tool.owner.username %></a></p>
+    <p>Owned by <%= link_to("#{@tool.owner.username}", "/users/#{@tool.owner.id}") %></p>
     <% if @tool.available %>
       <p>This tool is currently available.</p>
       <%= link_to("Reserve this tool", "/update_tool_availability/#{@tool.id}", :class => "btn btn-success btn-large" ) %>
