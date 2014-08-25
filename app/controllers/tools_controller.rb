@@ -21,21 +21,23 @@ class ToolsController < ApplicationController
     account_sid = ENV['account_sid']
     auth_token = ENV['auth_token']
 
-    if @tool.available == true
-      @tool.available = false
-      message = "Hey – can I borrow your #{@tool.tool_name}?"
-    elsif @tool.available == false
-      @tool.available = true
-      message = "Can you let me know when your #{@tool.tool_name} is available?"
-    end
-    @tool.save
+    @tool.send_availability_text(account_sid, auth_token)
+    # if @tool.available == true
+    #   @tool.available = false
+    #   message = "Hey – can I borrow your #{@tool.tool_name}?"
+    # elsif @tool.available == false
+    #   @tool.available = true
+    #   message = "Can you let me know when your #{@tool.tool_name} is available?"
+    # end
+    # @tool.save
 
-    @client = Twilio::REST::Client.new account_sid, auth_token
-    @client.account.messages.create(
-      :from => '+12245854611',
-      :to => '+17732630868',
-      :body => message,
-    )
+    # @client = Twilio::REST::Client.new account_sid, auth_token
+    # @client.account.messages.create(
+    #   :from => '+12245854611',
+    #   :to => '+17732630868',
+    #   :body => message,
+    # )
+
     redirect_to "/tools/#{@tool.id}", :notice => "Tool availability has been updated!"
   end
 
